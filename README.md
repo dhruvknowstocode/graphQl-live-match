@@ -4,11 +4,10 @@
 
 ```bash
 # Terminal 1: Start GraphQL Backend
-cd /Users/dhruvjain/Desktop/graphql-liveMatch
 npm start  # or: node server.js
 
 # Terminal 2: Start React Frontend
-cd /Users/dhruvjain/Desktop/graphql-liveMatch/client
+cd client
 npm install  # First time only
 npm start
 ```
@@ -17,52 +16,7 @@ npm start
 - Backend: http://localhost:4000/graphql
 - Frontend: http://localhost:3000
 
-Open the frontend, update scores, watch real-time updates across multiple tabs! 🚀
-
----
-
-## 📖 Documentation Map
-
-Choose what you need:
-
-### 👨‍💼 For Your Seniors (High-Level)
-📄 **[EXPLANATION.md](EXPLANATION.md)** ← Start here!
-- Quick 30-second pitch
-- Key technologies explained
-- Architecture diagram
-- Advantages over REST
-
-### 🔬 For Technical Deep-Dive
-📄 **[DETAILED_EXPLANATION.md](DETAILED_EXPLANATION.md)**
-- Every line of code explained
-- Detailed request flows
-- PubSub deep dive
-- Complete examples
-- Production considerations
-
-### 🚀 For Running the Project
-📄 **[SETUP_GUIDE.md](SETUP_GUIDE.md)**
-- Installation steps
-- Command reference
-- Troubleshooting guide
-- Testing procedures
-- Deployment tips
-
-### 🎨 For UI/UX Details
-📄 **[UI_SHOWCASE.md](UI_SHOWCASE.md)**
-- Design overview
-- Component breakdown
-- Animation specifications
-- Color palette
-- Responsive design
-- Visual mockups
-
-### 📱 For Frontend Specific
-📄 **[client/README.md](client/README.md)**
-- React component structure
-- Apollo Client setup
-- How subscriptions work
-- Features breakdown
+Open the frontend and update match scores to observe real-time updates across multiple clients.
 
 ---
 
@@ -70,15 +24,7 @@ Choose what you need:
 
 ```
 graphql-liveMatch/
-│
-├── 📖 Documentation
-│   ├── EXPLANATION.md                  ← Start here!
-│   ├── DETAILED_EXPLANATION.md         ← Deep technical
-│   ├── SETUP_GUIDE.md                  ← Running guide
-│   ├── UI_SHOWCASE.md                  ← Design details
-│   └── README.md                       ← This file
-│
-├── 🔙 Backend (GraphQL Server)
+├──  Backend (GraphQL Server)
 │   ├── server.js                       ← Main entry point
 │   ├── package.json
 │   ├── graphql/
@@ -89,7 +35,7 @@ graphql-liveMatch/
 │   └── pubsub/
 │       └── pubsub.js                   ← Event system
 │
-└── 🎨 Frontend (React App)
+└──  Frontend (React App)
     ├── client/
     │   ├── src/
     │   │   ├── App.js                  ← Main component
@@ -108,7 +54,7 @@ graphql-liveMatch/
 
 ---
 
-## 🎯 What You Built
+## System Overview
 
 A **real-time sports match updates system** demonstrating:
 
@@ -124,7 +70,7 @@ A **real-time sports match updates system** demonstrating:
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌──────────────────────────────────────────────────────────┐
@@ -163,7 +109,7 @@ A **real-time sports match updates system** demonstrating:
 
 ---
 
-## 🔄 Data Flow Example
+##  Data Flow Example
 
 **Scenario:** User A updates score, User B sees it instantly
 
@@ -198,7 +144,7 @@ Result: Both tabs show "2-1" in sync! ⚡
 
 ---
 
-## 🚀 Technologies Used
+##  Technologies Used
 
 | Layer | Technology | Purpose |
 |-------|-----------|---------|
@@ -214,7 +160,7 @@ Result: Both tabs show "2-1" in sync! ⚡
 
 ---
 
-## 💡 Key Concepts
+##  Key Concepts
 
 ### GraphQL vs REST
 ```
@@ -263,18 +209,18 @@ Subscribers (Clients):
 
 ---
 
-## ⚡ How Real-Time Updates Work
+##  How Real-Time Updates Work
 
 1. **Client subscribes** → Opens WebSocket → Registers interest in event
 2. **Another client mutates** → Server processes mutation → Server publishes event
 3. **PubSub broadcasts** → All subscribed clients receive data
 4. **Client receives** → Update UI → Users see change instantly
 
-**No polling, no refresh, no delay!** ⚡
+**The update is delivered instantly without requiring polling or manual refresh.** ⚡
 
 ---
 
-## 🎬 Testing Real-Time Updates
+##  Testing Real-Time Updates
 
 ### Single Browser (Multiple Tabs)
 1. Open http://localhost:3000 in Tab 1
@@ -296,7 +242,7 @@ Subscribers (Clients):
 
 ---
 
-## 🎨 UI Features
+##  UI Features
 
 - **Beautiful gradient background** (purple to violet)
 - **Animated score display** (pulses when updated)
@@ -310,7 +256,7 @@ Subscribers (Clients):
 
 ---
 
-## 📊 Performance
+##  Performance
 
 | Operation | Speed |
 |-----------|-------|
@@ -324,101 +270,7 @@ Subscribers (Clients):
 
 ---
 
-## 🔐 Security (Future)
-
-To make production-ready, add:
-- ✅ JWT authentication
-- ✅ Input validation
-- ✅ Rate limiting
-- ✅ CORS configuration
-- ✅ HTTPS/WSS encryption
-- ✅ Database instead of in-memory
-
----
-
-## 📈 Scalability (Future)
-
-To scale to many users:
-- ✅ Replace in-memory PubSub with **Redis**
-- ✅ Replace in-memory data with **MongoDB/PostgreSQL**
-- ✅ Use load balancers for multiple servers
-- ✅ Add database connection pooling
-- ✅ Implement caching layer
-
----
-
-## 🎓 Learning Outcomes
-
-By building this project, you learned:
-
-✅ **GraphQL fundamentals** - Types, queries, mutations, subscriptions  
-✅ **WebSocket connections** - Real-time two-way communication  
-✅ **PubSub pattern** - Event-driven architecture  
-✅ **React hooks** - useQuery, useMutation, useSubscription  
-✅ **Apollo Client** - Complete GraphQL client setup  
-✅ **Node.js/Express** - Backend development  
-✅ **Apollo Server** - GraphQL server implementation  
-✅ **CSS3 animations** - Modern UI effects  
-✅ **Async/await** - Asynchronous JavaScript  
-✅ **Software architecture** - Clean, modular code structure  
-
----
-
-## 💼 Presentation Tips
-
-### For Your Seniors:
-
-1. **Show the problem first**
-   - "Traditional polling is wasteful"
-   - "REST requires constant requests"
-
-2. **Show the solution**
-   - "GraphQL subscriptions are instant"
-   - "WebSocket keeps connection open"
-
-3. **Demonstrate live**
-   - Open two browser tabs
-   - Update in one, watch other update
-   - Most impressive part! 🎬
-
-4. **Explain the code**
-   - Walk through schema
-   - Show mutation + PubSub
-   - Explain subscription resolver
-
-5. **Discuss scalability**
-   - Current: Simple in-memory
-   - Future: Redis + Database
-   - Production-ready path
-
----
-
-## 🚀 Next Steps
-
-### Short Term
-1. ✅ Add more matches (not just match ID "1")
-2. ✅ Add odds updates subscription
-3. ✅ Add authentication
-4. ✅ Improve error handling
-5. ✅ Add loading skeletons
-
-### Medium Term
-1. ✅ Deploy backend to Heroku/AWS
-2. ✅ Deploy frontend to Vercel/Netlify
-3. ✅ Add database (MongoDB)
-4. ✅ Replace PubSub with Redis
-5. ✅ Add more sports/leagues
-
-### Long Term
-1. ✅ Mobile app (React Native)
-2. ✅ Real match simulation
-3. ✅ User accounts & history
-4. ✅ Notifications system
-5. ✅ Analytics dashboard
-
----
-
-## 📞 Troubleshooting
+## Troubleshooting
 
 **Server won't start?**
 - Check port 4000 is free: `lsof -i :4000`
@@ -439,11 +291,9 @@ By building this project, you learned:
 - Check asyncIterator is properly set up
 - Check PubSub event channel names match
 
-See [SETUP_GUIDE.md](SETUP_GUIDE.md) for more troubleshooting.
-
 ---
 
-## 📚 Quick Reference
+## Quick Reference
 
 ### Ports
 - Backend: 4000
@@ -477,69 +327,11 @@ lsof -i :4000  # or :3000
 
 ---
 
-## ✨ Project Status
+## Future Improvements
 
-✅ **Complete & Functional**
-- ✅ Backend server running
-- ✅ GraphQL subscriptions working
-- ✅ Real-time updates flowing
-- ✅ React frontend beautiful
-- ✅ Animations smooth
-- ✅ Documentation complete
+For production-scale systems the following enhancements could be considered:
 
-✅ **Ready to Present**
-- ✅ Works across devices
-- ✅ Impressive demo-ready
-- ✅ Code well-documented
-- ✅ Architecture explained
-- ✅ Scalability planned
-
----
-
-## 🎉 Conclusion
-
-You've built a **production-ready POC** for real-time GraphQL subscriptions!
-
-This demonstrates:
-- Modern web development best practices
-- Real-time communication skills
-- GraphQL mastery
-- React proficiency
-- Full-stack capabilities
-
-**You're ready to showcase this to your seniors!** 🚀
-
----
-
-## 📖 Reading Order
-
-1. **First Read:** [EXPLANATION.md](EXPLANATION.md) (10 min)
-2. **Deep Dive:** [DETAILED_EXPLANATION.md](DETAILED_EXPLANATION.md) (30 min)
-3. **Running:** [SETUP_GUIDE.md](SETUP_GUIDE.md) (5 min)
-4. **Design:** [UI_SHOWCASE.md](UI_SHOWCASE.md) (15 min)
-5. **Code:** Review files in editor
-
----
-
-## 💡 One Last Thing
-
-This project is a **foundation** for:
-- E-commerce real-time inventory
-- Chat applications
-- Collaborative tools
-- Stock market dashboards
-- Live gaming platforms
-- Notification systems
-- Monitoring dashboards
-
-**The skills you learned apply everywhere!** 🌟
-
----
-
-**Build something amazing!** 🚀  
-**Let your seniors know what you've created!** 💪  
-**This is production-ready code!** ✨
-
----
-
-*Happy coding!* 👨‍💻👩‍💻
+- Replace in-memory PubSub with Redis
+- Store match data in a database
+- Add authentication and authorization
+- Deploy using containerized services
